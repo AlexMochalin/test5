@@ -1,22 +1,85 @@
-<script>
-  var arr=[];
-	arr.push('zero');
-	arr.push('one',2,10,55,75);
-	arr.unshift('two');
-	arr.shift();
-	for(var i=0;i<arr.length;i++){
-		console.log(arr[i]);
-	}
-	//var arr = ['world',5,7,9,10];
-	//var value = arr[0];
-	//arr.unshift(100);
-	//arr.shift();
-	//document.write(arr[0]+'<br>');
-	//document.write(arr[1]);
-	//var value = arr[1,2,'three'];
-	
-	//delete arr[2];
-	//console.log(arr);
+<html>
+	<head>
+		<style>
+			.blue {
+				color: blue;
+			}
+			.pink {
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<h1  id="header">Заголовок &#9813;</h1>
+		
+		<p class="article">Первый параграф</p>
+		<p class="article">Второй параграф</p>
+		<p class="article">Третий параграф</p>
+		<p class="article">Четвертый параграф</p>
+		
+		<div class="outer">
+			<div class="inner">Вложенный блок</div>
+		</div>
+		
+		<ol id="list">
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+		
+		<script>
+			var list = document.getElementById("list");
+			var newItem = document.createElement("li");
+			newItem.innerText = "TextText";
+			list.insertBefore(newItem,list.children[4]);
 
-	
-</script>
+			for(var i=0;i<document.body.childNodes.length;i++){
+				console.log(document.body.childNodes[i]);
+			}
+			
+			var h = document.getElementById("header");
+			h.innerText = 'Новый заголовок';
+			//h.style.color = 'green';
+			h.className = 'pink';
+
+			var article = document.getElementsByClassName('article');
+			article[1].style.color = 'teal';
+
+			for(i=0,size=50,weight=700;i<article.length;i++,size-=10,weight-=100){
+				article[i].style.fontSize = size + 'px';
+				article[i].style.fontWeigth = weight;
+			}
+
+			document.querySelector('body>p').style.color = "red";
+
+			var elText = document.createTextNode('Новый заголовок с createTextNode и appendChild');
+			document.body.appendChild(elText);
+			
+			//elText.style.color = 'red'; //????????
+
+			var link = document.createElement('a');
+			link.href = 'https://yandex.ru/';
+			link.innerText = 'Ссылка на Яндекс';
+			document.getElementsByClassName('outer')[0].appendChild(link);
+			link.style.color = 'red';
+
+			
+
+
+
+
+
+
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>
